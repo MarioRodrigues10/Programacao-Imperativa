@@ -52,26 +52,22 @@ void tri2(int n)
     }
 }
 
-void circulo(int n){
-   int i,j;
-   for(i=1; i<=n; i++){
-        for(j=1;j<=n-i; j++){
-                printf(" ");
-        }
-        for(j=1; j<=2*i-1; j++){
-                printf("#");
+void circulo(int n) {
+    int num = 0;
+    float a,b,c;
+    for (int i =  0; i < n*2+1; i++) {
+        for (int j = 0; j < n*2+1; j++) {
+            a = n - i;
+            b = n - j;
+            c = sqrt(a*a+ b*b);
+            if (c <= n) {
+                printf('#');
+                num++;
             }
-        printf("\n");
-    }
-    i = i-1;
-    for(i; 0 <= i; i--){
-        for(j=0; j < n-i; j++){
-            printf (" ");
+            else printf(' ');
         }
-        for(j=1; j <=2*i-1; j++){
-            printf("#");
-        }
-        printf("\n");
+        printf('\n');
     }
+    return 0;
 }
 
