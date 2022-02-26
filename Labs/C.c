@@ -1,7 +1,6 @@
 #include <stdio.h>
-#include <stdbool.h>
 
-bool testaFATORIAL();
+int testaFATORIAL();
 int main(){
     int a,b,c;
    if(scanf("%d %d %d\n", &a, &b, &c)){
@@ -35,7 +34,7 @@ int main(){
    } 
 }
 
-bool testaFATORIAL(int n){
+int testaFATORIAL(int n){
     int f = 1, i = 1;
     while(f < n){
         f = f*i;
