@@ -53,7 +53,6 @@ void tri2(int n)
 }
 
 void circulo(int n) {
-    int num = 0;
     float a,b,c;
     for (int i =  0; i < n*2+1; i++) {
         for (int j = 0; j < n*2+1; j++) {
@@ -62,7 +61,6 @@ void circulo(int n) {
             c = sqrt(a*a+ b*b);
             if (c <= n) {
                 printf('#');
-                num++;
             }
             else printf(' ');
         }
