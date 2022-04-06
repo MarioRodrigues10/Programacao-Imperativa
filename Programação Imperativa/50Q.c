@@ -409,9 +409,24 @@ int maisFreq (int v[], int N){
 
 
 //32
-
-
-
+int maxCresc (int v[], int N){
+    int i, j, max = 0, aux = 0;
+    for(i=0; i < N; i++){
+        aux = 1;
+        for(j=i; j < N; j++){
+            if(v[j] <= v[j+1]){
+                aux++;
+            }
+            else{
+                break;
+            }
+        }
+        if (max < aux){
+            max = aux;
+        }
+    }
+    return max;
+}
 
 
 //33
