@@ -127,16 +127,6 @@ void strnoV (char t[]){
     t[pos] = '\0';
 }
 
-//13
-void truncW(char t[], int n){
-  int i,j;
-  for(i=0; t[i] != '\0'; i++){
-    if(i >= n){
-      t[i] = '\0';
-      break;
-    }
-  }
-}
 
 //14
 char charMaisFreq(char s[]){
@@ -154,27 +144,6 @@ char charMaisFreq(char s[]){
     freq = 0;
   }
   return s[pos];
-}
-
-//14
-char charMaisFreq(char s[])
-{
-    char a, mf;
-    int count,max=0;
-    for(int i=0; s[i] != '\0';i++){
-        count = 0;
-        a = s[i];
-        for(int j=i+1; s[j] != '\0'; j++){
-            if(a == s[j]){
-                count++;
-            }
-        }
-        if (max < count){
-            mf = a;
-            max = count;
-        }
-    }
-    return mf;
 }
 
 //15
