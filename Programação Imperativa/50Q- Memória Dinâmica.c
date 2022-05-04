@@ -17,7 +17,6 @@ int length(LInt l) {
     return cont;
 }
 
-//free the space occupied by the list
 //2
 void freeL(LInt l) {
     LInt aux;
@@ -28,7 +27,6 @@ void freeL(LInt l) {
     }
 }
 
-//print every element of the list
 //3
 void imprimeL(LInt l) {
     while (l != NULL) {
@@ -37,7 +35,6 @@ void imprimeL(LInt l) {
     }
 }
 
-//reverse the list
 //4
 LInt reverseL(LInt l) {
     LInt ant = NULL;
@@ -52,7 +49,6 @@ LInt reverseL(LInt l) {
     return ant;
 }
 
-//insert an element in a ordered list
 //5
 void insertOrdered(LInt *l, int valor) {
     LInt novo = (LInt) malloc(sizeof(struct lligada));
@@ -175,7 +171,6 @@ int removeDups(LInt *l) {
 }
 
 //12
-//remove the biggest element of a none empty list and return that value that was removed
 int removeMaiorL (LInt *l){
     LInt ant = NULL, atual = *l;
     int maior = atual->valor;
@@ -209,7 +204,6 @@ void removeLast(LInt *l){
 }
 
 //14
-//add an element in the end of the list
 void appendL(LInt *l, int x){
     LInt novo = (LInt) malloc(sizeof(struct lligada));
     novo->valor = x;
@@ -323,6 +317,7 @@ int listToArray (LInt l, int v[], int N){
     return cont;
 }
 
+//23
 LInt arrayToList (int v[], int N) {
     if(N == 0) return NULL;
     LInt new = malloc(sizeof(struct lligada));
