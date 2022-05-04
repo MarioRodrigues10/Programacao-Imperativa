@@ -267,33 +267,69 @@ int maximo (LInt l){
     return maior;
 }
 
-//19 (6/10 tests)
-int take (int n, LInt *l){
-    int cont = 0;
-    LInt ant = NULL, atual = *l;
-    while(cont < n && atual != NULL) {
-        ant = atual;
-        atual = atual->prox;
-        cont++;
-    }
-    if(ant == NULL) *l = atual;
-    else ant->prox = atual;
-    return cont;
+//19
+void freeL (LInt head){
+	LInt tmp;
+	while (head != NULL){
+		tmp = head;
+		head = head->prox;
+		free(tmp);
+	} 
 }
 
-//20 (8/10 testes)
-int drop (int n, LInt *l) {
-    int cont = 0;
-    LInt ant = NULL, atual = *l;
-    while(cont < n && atual != NULL) {
-        ant = atual;
-        atual = atual->prox;
-        cont++;
+int take (int n, LInt *head){
+	LInt current = *head;
+	int i;
+    for (i = 0; i < (n-1) && current != NULL; i++){
+    	current = current->prox;
+    } 
+    if (current == NULL){
+    	return i;
     }
-    if(ant == NULL) *l = atual;
-    else ant->prox = atual;
-    return cont;
+    LInt freeMe = current->prox;
+    current->prox = NULL;
+    freeL(freeMe)
+    return ++i;
 }
+
+//20 
+void freeL (LInt head){
+	LInt tmp;
+	while (head != NULL){
+		tmp = head;
+		head = head->prox;
+		free(tmp);
+	} 
+}
+
+int length (LInt head){
+    int i;
+    for (i = 0; head != NULL; i++){
+    	head = head->prox;
+    }
+    return i;
+}
+
+int drop (int n, LInt *head){
+    LInt current = *head; 
+    int len = length(current); 
+    if (n >= len){
+    	freeL(current);
+    	*head = NULL;
+    	return len;
+    }
+    int i;
+    for (i = 0; i < (n-1); i++){
+    	current = current->prox;
+    } 
+
+    LInt output = current->prox;
+    current->prox = NULL;
+    freeL(*head); 
+    *head = output; 
+    return n;
+}
+
 
 //21
 LInt Nforward(LInt l, int n){
