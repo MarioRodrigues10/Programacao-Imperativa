@@ -127,6 +127,27 @@ void strnoV (char t[]){
     t[pos] = '\0';
 }
 
+//13
+void truncW(char t[], int n) {
+    int i = 0;
+    int j = 0;
+    int count = 0;
+    while (t[i] != '\0') {
+        if (!isspace(t[i])) {
+            if (count < n) {
+                t[j] = t[i];
+                j++;
+            }
+            count++;
+        } else {
+            count = 0;
+            t[j] = ' ';
+            j++;
+        }
+        i++;
+    }
+    t[j] = '\0';
+}
 
 //14
 char charMaisFreq(char s[]){
@@ -639,9 +660,20 @@ int caminho (Posicao inicial, Posicao final, Movimento mov[], int N){
     else return j;
 }
 
-//49 (em processo)
-
-
+//49
+int maiscentral(Posicao pos[], int N) {
+    int indice_mais_central = 0;
+    int i;
+    double distancia_mais_proxima = sqrt(pos[0].x * pos[0].x + pos[0].y * pos[0].y);
+    for (i = 1; i < N; i++) {
+        double distancia = sqrt(pos[i].x * pos[i].x + pos[i].y * pos[i].y);
+        if (distancia < distancia_mais_proxima) {
+            indice_mais_central = i;
+            distancia_mais_proxima = distancia;
+        }
+    }
+    return indice_mais_central;
+}
 
 //50
 int vizinhos (Posicao p, Posicao pos[], int N){
